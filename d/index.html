@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Open in Nombara</title>
+<!--
+  Landing page for dispensary-shared booking links.
+
+  Served at:  https://<deep-link-host>/d/<dispensarySlug>?doc=<doctorId>
+  (host must match AppConfig.deepLinkBaseUrl and the Android/iOS deep-link
+  config — currently the nombarra-spec.github.io stopgap.)
+
+  What it does:
+    1. If the app is installed + the App/Universal Link is verified, the OS
+       opens the app before this page ever renders.
+    2. Otherwise this page tries the `nombara://` scheme bridge.
+    3. If that fails (app not installed), after ~1.5s it sends the visitor to
+       the Play Store / App Store. The Play Store URL carries the target in
+       `&referrer=` so the app can still open the right doctor after install
+       (Android only — see DeepLinkService._consumeInstallReferrer).
+    4. Manual buttons for all three, plus "continue in browser" → the web app.
+
+  FILL IN before deploying:
+    - APPLE_APP_ID   : the App Store numeric id (after the listing exists)
+    - WEB_APP_ORIGIN : where the Flutter web patient build is hosted
+-->
+<style>
+  :root { --pine:#0F3A2E; --green:#2F9E6B; --paper:#F4F7F4; --ink:#12241E; --muted:#69796F; --line:#E3E9E4; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+         background: var(--paper); color: var(--ink); min-height: 100vh;
+         display: flex; align-items: center; justify-content: center; padding: 24px; }
+  .card { background: #fff; border: 1px solid var(--line); border-radius: 18px;
+          max-width: 380px; width: 100%; padding: 28px 24px; text-align: center; }
+  .mark { width: 34px; height: 34px; border-radius: 9px; background: var(--green);
+          display: inline-flex; align-items: center; justify-content: center;
+          color: #fff; font-size: 20px; font-weight: 700; margin-bottom: 14px; }
+  h1 { font-size: 19px; margin-bottom: 6px; }
+  p  { font-size: 13px; color: var(--muted); margin-bottom: 20px; line-height: 1.5; }
+  a.btn { display: block; text-decoration: none; font-size: 14px; font-weight: 700;
+          padding: 13px 16px; border-radius: 11px; margin-top: 10px; }
+  a.primary { background: var(--pine); color: #fff; }
+  a.secondary { background: var(--paper); color: var(--ink); border: 1px solid var(--line); }
+  a.link { color: var(--green); font-size: 13px; font-weight: 700; display: inline-block; margin-top: 16px; }
+  .disc { font-size: 11px; color: var(--muted); margin-top: 20px; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="mark">+</div>
+    <h1 id="title">Opening Nombara…</h1>
+    <p id="sub">If nothing happens, choose an option below.</p>
+
+    <a class="btn primary" id="openApp" href="#">Open in the app</a>
+    <a class="btn secondary" id="getApp" href="#">Get the app</a>
+    <a class="link" id="web" href="#">Continue in the browser</a>
+
+    <p class="disc">Nombara is a booking and queue service, not a medical
+      provider. It does not give medical advice or diagnoses.</p>
+  </div>
+
+<script>
+(function () {
+  // ---- CONFIG (fill in before deploy) ---------------------------------
+  var APPLE_APP_ID   = "APPLE_APP_ID";                 // e.g. 6740000000
+  var WEB_APP_ORIGIN = "https://WEB_APP_ORIGIN";        // Flutter web patient build
+  // -------------------------------------------------------------------
+
+  var parts = location.pathname.split("/").filter(Boolean);   // ["d", "<slug>"]
+  var qs = new URLSearchParams(location.search);
+  var slug = (parts[0] === "d" && parts[1]) ? decodeURIComponent(parts[1]) : (qs.get("d") || "");
+  var doc  = qs.get("doc") || "";
+
+  var ua = navigator.userAgent || "";
+  var isIOS = /iphone|ipad|ipod/i.test(ua);
+  var isAndroid = /android/i.test(ua);
+
+  var scheme = "nombara://d/" + encodeURIComponent(slug) + (doc ? "?doc=" + encodeURIComponent(doc) : "");
+  var referrer = encodeURIComponent("d=" + slug + (doc ? "&doc=" + doc : ""));
+  var play = "https://play.google.com/store/apps/details?id=com.nombara.nombara&referrer=" + referrer;
+  var appStore = "https://apps.apple.com/app/id" + APPLE_APP_ID;
+  var store = isIOS ? appStore : play;
+  var web = WEB_APP_ORIGIN + "/?d=" + encodeURIComponent(slug) + (doc ? "&doc=" + encodeURIComponent(doc) : "");
+
+  document.getElementById("getApp").href = store;
+  document.getElementById("web").href = web;
+
+  function openApp() {
+    var start = Date.now();
+    // Verified App/Universal Links already intercepted this URL if installed;
+    // this scheme hop covers the unverified-iOS / pre-entitlement case.
+    window.location.href = scheme;
+    setTimeout(function () {
+      if (Date.now() - start < 2100 && !document.hidden) window.location.href = store;
+    }, 1600);
+  }
+  document.getElementById("openApp").addEventListener("click", function (e) {
+    e.preventDefault(); openApp();
+  });
+
+  if (!slug) {
+    document.getElementById("title").textContent = "Nombara";
+    document.getElementById("sub").textContent = "Book a doctor and skip the clinic waiting room.";
+    return;
+  }
+  // Auto-attempt once.
+  openApp();
+})();
+</script>
+</body>
+</html>

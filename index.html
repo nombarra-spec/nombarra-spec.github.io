@@ -3,22 +3,93 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nombara</title>
-<style>
-  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-         background: #F4F7F4; color: #12241E; min-height: 100vh; margin: 0;
-         display: flex; align-items: center; justify-content: center; text-align: center; padding: 24px; }
-  .m { width: 40px; height: 40px; border-radius: 10px; background: #2F9E6B; color: #fff;
-       display: inline-flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 700; }
-  h1 { font-size: 20px; margin: 14px 0 6px; }
-  p { font-size: 13px; color: #69796F; }
-</style>
+<title>Nombara — book a doctor, skip the waiting room</title>
+<meta name="description" content="Nombara gives you a numbered token for a doctor at a local dispensary in Sri Lanka, then shows the live 'now serving' number so you arrive just before your turn.">
+<link rel="canonical" href="https://nombarra-spec.github.io/">
+<meta property="og:title" content="Nombara — book a doctor, skip the waiting room">
+<meta property="og:description" content="Verified doctors, dentists and Ayurveda practitioners at dispensaries across Sri Lanka.">
+<meta property="og:type" content="website">
+<link rel="icon" href="app/favicon.png">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Sora:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
-  <div>
-    <div class="m">+</div>
-    <h1>Nombara</h1>
-    <p>Book a doctor and skip the clinic waiting room.</p>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="mark">+</span> Nombara</a>
+    <nav>
+      <a href="doctors.html">Find a doctor</a>
+      <a href="https://nombarra-spec.github.io/nombara-site/support.html">Support</a>
+      <a href="https://nombarra-spec.github.io/nombara-site/privacy.html">Privacy</a>
+    </nav>
   </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Book a doctor. Skip the waiting room.</h1>
+    <p>Get a numbered token for a doctor at a local dispensary from your phone,
+       then watch the live “now serving” number and arrive just before your turn.</p>
+    <p style="margin-top:1.2rem">
+      <a class="btn btn--green" href="doctors.html">Find a doctor near you</a>
+    </p>
+  </div>
+</section>
+
+<main class="wrap wrap--narrow">
+  <h2>How it works</h2>
+  <ol>
+    <li><strong>Find a practitioner.</strong> Browse verified doctors, dentists and
+        Ayurveda practitioners — sorted by how near they are to you.</li>
+    <li><strong>Take a token.</strong> Pick a session and get a numbered token,
+        from the app or from your browser.</li>
+    <li><strong>Arrive on time.</strong> The live “now serving” number and a
+        near-turn alert tell you when to leave.</li>
+  </ol>
+
+  <div class="callout">
+    <p><strong>Nombara is a booking and queue service, not a medical provider.</strong>
+       It does not give medical advice, diagnoses, triage or prescription handling —
+       that stays entirely between you and the doctor.</p>
+  </div>
+
+  <h2>No payments in the app</h2>
+  <p>Nombara never takes a card payment and has no in-app purchases. The booking
+     fee and the doctor’s fee are both paid in cash at the dispensary counter.</p>
+
+  <h2>Every practitioner is verified</h2>
+  <p>A practitioner appears on this site only after Nombara has checked their
+     registration against the right professional register — the Sri Lanka Medical
+     Council, its dental register, or the Ayurvedic Medical Council. Photos are
+     published only with the practitioner’s consent.</p>
+
+  <h2>Links</h2>
+  <ul>
+    <li><a href="doctors.html">Find a doctor</a></li>
+    <li><a href="https://nombarra-spec.github.io/nombara-site/privacy.html">Privacy policy</a></li>
+    <li><a href="https://nombarra-spec.github.io/nombara-site/terms.html">Terms of use</a></li>
+    <li><a href="https://nombarra-spec.github.io/nombara-site/support.html">Support &amp; contact</a></li>
+    <li><a href="https://nombarra-spec.github.io/nombara-site/delete-account.html">Delete your account and data</a></li>
+  </ul>
+
+  <h2>Contact</h2>
+  <p>Email <a href="mailto:nombarra@gmail.com">nombarra@gmail.com</a>.</p>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <nav>
+      <a href="doctors.html">Find a doctor</a>
+      <a href="https://nombarra-spec.github.io/nombara-site/privacy.html">Privacy</a>
+      <a href="https://nombarra-spec.github.io/nombara-site/terms.html">Terms</a>
+      <a href="https://nombarra-spec.github.io/nombara-site/support.html">Support</a>
+      <a href="https://nombarra-spec.github.io/nombara-site/delete-account.html">Delete account</a>
+    </nav>
+    Nombara is operated by Mohammed Mahsoom Mohammed Naazik, Sri Lanka. &copy; 2026.
+  </div>
+</footer>
+
 </body>
 </html>

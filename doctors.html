@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Find a doctor near you — Nombara</title>
+<meta name="description" content="Browse verified doctors, dentists and Ayurveda practitioners at dispensaries across Sri Lanka. See who is nearest, when they next sit, and book a numbered token from your phone.">
+<link rel="canonical" href="https://nombarra-spec.github.io/doctors.html">
+<meta property="og:title" content="Find a doctor near you — Nombara">
+<meta property="og:description" content="Verified doctors, dentists and Ayurveda practitioners at dispensaries across Sri Lanka — nearest first.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nombarra-spec.github.io/doctors.html">
+<link rel="icon" href="app/favicon.png">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Sora:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="mark">+</span> Nombara</a>
+    <nav>
+      <a href="doctors.html" aria-current="page">Find a doctor</a>
+      <a href="https://nombarra-spec.github.io/nombara-site/support.html">Support</a>
+      <a href="https://nombarra-spec.github.io/nombara-site/privacy.html">Privacy</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Find a doctor near you</h1>
+    <p>Every practitioner below is registered and verified by Nombara and
+       currently sitting at a dispensary. <span id="heroCount" class="count"></span></p>
+  </div>
+</section>
+
+<section class="toolbar">
+  <div class="wrap">
+    <div class="row">
+      <label class="field field--search">
+        <span class="sr-only" id="searchLabel">Search by practitioner, dispensary or town</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path>
+        </svg>
+        <input id="search" type="search" autocomplete="off" aria-labelledby="searchLabel"
+               placeholder="Search a name, dispensary or town">
+      </label>
+
+      <button class="btn btn--ghost" id="nearMe" type="button">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="12" cy="12" r="3"></circle><path d="M12 2v3M12 19v3M2 12h3M19 12h3"></path>
+        </svg>
+        <span id="nearMeLabel">Sort by nearest</span>
+      </button>
+
+      <label class="field">
+        <span class="sr-only" id="townLabel">Town</span>
+        <select id="town" aria-labelledby="townLabel"><option value="">Any town</option></select>
+      </label>
+
+      <label class="field">
+        <span class="sr-only" id="specialtyLabel">Specialty</span>
+        <select id="specialty" aria-labelledby="specialtyLabel"><option value="">Any specialty</option></select>
+      </label>
+    </div>
+
+    <div class="row" id="categoryChips" role="group" aria-label="Practitioner type"></div>
+  </div>
+</section>
+
+<main class="wrap">
+  <p class="status-line" id="status" role="status" aria-live="polite"></p>
+
+  <ul class="grid" id="results"></ul>
+
+  <div id="stateSlot"></div>
+
+  <div id="moreSlot" style="text-align:center; margin: 1.4rem 0 0;"></div>
+
+  <div class="callout">
+    <p><strong>Nombara is a booking and queue service, not a medical provider.</strong>
+       It does not give medical advice, diagnoses or triage. Booking and doctor's
+       fees are paid in cash at the dispensary counter — never in the app.</p>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="doctors.html">Find a doctor</a>
+      <a href="https://nombarra-spec.github.io/nombara-site/privacy.html">Privacy</a>
+      <a href="https://nombarra-spec.github.io/nombara-site/terms.html">Terms</a>
+      <a href="https://nombarra-spec.github.io/nombara-site/support.html">Support</a>
+      <a href="https://nombarra-spec.github.io/nombara-site/delete-account.html">Delete account</a>
+    </nav>
+    Nombara is operated by Mohammed Mahsoom Mohammed Naazik, Sri Lanka. &copy; 2026.
+  </div>
+</footer>
+
+<script src="assets/config.js"></script>
+<script src="assets/directory-core.js"></script>
+<script src="assets/nombara-api.js"></script>
+<script src="assets/directory.js"></script>
+</body>
+</html>

@@ -4,6 +4,25 @@ Static files that make the dispensary-shared booking links
 (`https://<host>/d/<slug>?doc=<doctorId>`) resolve — opening the installed
 app, or routing to the store / web app when it isn't installed.
 
+## What this folder is now
+
+Two things share one host:
+
+1. **The public site** — `index.html` (landing), `doctors.html` (the live
+   doctor directory, Session 44) and `doctor.html` (one practitioner), plus
+   `assets/`. These read the `public_practitioners` view with the **publishable**
+   anon key. No secret key belongs in this folder, ever.
+2. **The deep-link plumbing** — `/.well-known/` and `/d/`, below.
+
+They are deliberately on the same origin: the directory's **Book** buttons
+link to `/d/?d=<slug>&doc=<doctorId>`, so they are relative links that cannot
+point at the wrong host.
+
+Deploy this folder as-is, or run `node scripts/build_public_directory.mjs`
+and deploy `build/public_site/` instead for the pre-rendered, crawlable copy
+(per-practitioner pages + `sitemap.xml`). Both are self-contained; the second
+is a superset.
+
 ## Where it goes
 
 Host these at the **root** of the deep-link domain — the same origin as

@@ -12,17 +12,38 @@
  * closed to it.
  */
 window.NOMBARA_CONFIG = {
-  /* Session 45: the canonical public addresses. The site's own pages link to
-     these (pinned by test/web/site_links_test.cjs), and the Flutter app
-     derives the same URLs from its WEBSITE_URL (lib/core/config/app_links.dart).
-     Moving to a real domain: change them here, in the app's WEBSITE_URL, and
-     re-run the test. */
+  /* The canonical public addresses. Every page links the legal pages
+     relatively (same site), and these absolute forms are what the apps, the
+     store listings and the sitemap use (pinned by test/web/site_links_test.cjs).
+     The Flutter app derives the same URLs from WEBSITE_URL + LEGAL_BASE_URL
+     (lib/core/config/app_config.dart). */
   site: {
-    url: 'https://nombarra-spec.github.io',
-    privacy: 'https://nombarra-spec.github.io/nombara-site/privacy.html',
-    terms: 'https://nombarra-spec.github.io/nombara-site/terms.html',
-    support: 'https://nombarra-spec.github.io/nombara-site/support.html',
-    deleteAccount: 'https://nombarra-spec.github.io/nombara-site/delete-account.html',
+    url: 'https://nombara.naazglobalcorp.com',
+    privacy: 'https://nombara.naazglobalcorp.com/privacy.html',
+    terms: 'https://nombara.naazglobalcorp.com/terms.html',
+    support: 'https://nombara.naazglobalcorp.com/support.html',
+    deleteAccount: 'https://nombara.naazglobalcorp.com/delete-account.html',
+  },
+
+  /* Who runs Nombara and how to reach them. Shown on the home page, footer
+     and legal pages. */
+  contact: {
+    operator: 'Naaz Global Corporation (Pvt) Ltd',
+    email: 'nombara@naazglobalcorp.com',
+  },
+
+  /* Phone / WhatsApp booking lines, one per area. While this list is empty
+     the "Call" and "WhatsApp" booking options stay hidden on the home page.
+     Add an area to switch them on, e.g.
+       { area: 'Akurana & Kandy', phone: '+94 77 123 4567', whatsapp: '+94 77 123 4567', hours: '7 AM – 10 PM' },
+     `whatsapp` and `hours` are optional. */
+  hotlines: [],
+
+  /* Store listings. Empty = that store button is hidden. Fill in once each
+     listing is live. */
+  stores: {
+    playStore: '',
+    appStore: '',
   },
 
   /* Supabase project (production). Swap both lines together when pointing the

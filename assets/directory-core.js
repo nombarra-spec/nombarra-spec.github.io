@@ -154,6 +154,22 @@
   }
 
   /**
+   * Where a "Download the app" button goes. Booking happens only in the
+   * mobile app, so every booking call-to-action on the website points here:
+   * the App Store on an iPhone/iPad, Google Play on Android, and otherwise
+   * (desktop, or a store listing not live yet) the home page's download
+   * section. Store URLs come from `config.stores` and must be https.
+   */
+  function appDownloadUrl(config, userAgent) {
+    var stores = (config && config.stores) || {};
+    var https = function (u) { return typeof u === 'string' && /^https:\/\//.test(u) ? u : ''; };
+    var ua = String(userAgent || '');
+    if (/iphone|ipad|ipod/i.test(ua) && https(stores.appStore)) return stores.appStore;
+    if (/android/i.test(ua) && https(stores.playStore)) return stores.playStore;
+    return 'index.html#get-app';
+  }
+
+  /**
    * The detail page for a practitioner. Always a real, servable path.
    *
    * `doctor.html?id=…` is the form that works on a raw checkout of this
@@ -276,6 +292,7 @@
     initials: initials,
     photoUrl: photoUrl,
     bookingUrl: bookingUrl,
+    appDownloadUrl: appDownloadUrl,
     profileUrl: profileUrl,
     collapseToNearest: collapseToNearest,
     sortByDistance: sortByDistance,

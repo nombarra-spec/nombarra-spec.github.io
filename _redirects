@@ -1,0 +1,5 @@
+# Cloudflare Pages / Netlify: serve the deep-link page for clean
+# /d/<dispensary-slug> links (GitHub Pages has no rewrites; there only the
+# /d/?d=<slug> form works). The target is /d/, not /d/index.html — Pages
+# 308-redirects *.html to the extensionless URL, which breaks a rewrite.
+/d/:slug  /d/  200

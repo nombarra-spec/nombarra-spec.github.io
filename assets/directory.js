@@ -75,7 +75,7 @@
     if (state.district) p.set('district', state.district);
     if (state.specialty) p.set('specialty', state.specialty);
     if (state.lat != null && state.lng != null) {
-      p.set('near', state.lat.toFixed(4) + ',' + state.lng.toFixed(4));
+      p.set('near', state.lat.toFixed(2) + ',' + state.lng.toFixed(2));
     }
     var url = location.pathname + (p.toString() ? '?' + p.toString() : '');
     if (replace) history.replaceState(null, '', url);
@@ -178,14 +178,16 @@
     li.appendChild(meta);
 
     var actions = el('div', 'card__actions');
-    var book = el('a', 'btn btn--green', 'Book a token');
-    book.href = C.bookingUrl(CONFIG, row);
-    book.setAttribute('aria-label', 'Book a token with ' + (row.doctor_name || 'this practitioner'));
-    actions.appendChild(book);
-
-    var profile = el('a', 'btn btn--ghost', 'Profile');
+    /* Booking is app-only: the website lists practitioners, the app books. */
+    var profile = el('a', 'btn btn--green', 'View profile');
     profile.href = C.profileUrl(row, CONFIG);
+    profile.setAttribute('aria-label', 'View the profile of ' + (row.doctor_name || 'this practitioner'));
     actions.appendChild(profile);
+
+    var app = el('a', 'btn btn--ghost', 'Book in the app');
+    app.href = C.appDownloadUrl(CONFIG, navigator.userAgent);
+    app.setAttribute('aria-label', 'Download the Nombara app to book ' + (row.doctor_name || 'this practitioner'));
+    actions.appendChild(app);
 
     li.appendChild(actions);
     return li;
@@ -476,9 +478,12 @@
 
     navigator.geolocation.getCurrentPosition(function (pos) {
       els.nearMe.disabled = false;
+      /* Rounded to 2 dp (~1 km) before it goes anywhere — the URL, the
+         search request, session storage. Plenty to sort dispensaries by
+         distance, too coarse to pinpoint a visitor's home. */
       rememberLocation(
-        Math.round(pos.coords.latitude * 10000) / 10000,
-        Math.round(pos.coords.longitude * 10000) / 10000,
+        Math.round(pos.coords.latitude * 100) / 100,
+        Math.round(pos.coords.longitude * 100) / 100,
         'your location'
       );
       onFilterChange();

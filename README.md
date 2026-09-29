@@ -1,4 +1,50 @@
-# Nombara deep-link landing site
+# Nombara public website — nombara.naazglobalcorp.com
+
+One static site, one origin: the home page (`index.html`), the live doctor
+directory (`doctors.html`, `doctor.html`), the four pages the App Store and
+Google Play require (`privacy.html`, `terms.html`, `support.html`,
+`delete-account.html`), and the deep-link plumbing (`/d/`, `/.well-known/`).
+
+**Doctors appear automatically.** Every doctor list on the site reads the
+`public_practitioners` view, which only contains practitioners with
+`verified = true` and `status = 'active'`. When a collector onboards a doctor
+and the CEO approves them, they are on the website on the next page load — no
+rebuild. (Run `node scripts/build_public_directory.mjs` only to refresh the
+pre-rendered, search-engine copy.)
+
+**Things you edit** — all in `assets/config.js`:
+- `hotlines` — add one entry per area to switch on the Call / WhatsApp option.
+- `stores.playStore`, `stores.appStore` — the store buttons appear once set.
+- `contact` — operator name and support email.
+
+## Deploying to nombara.naazglobalcorp.com (Cloudflare Pages — recommended)
+
+Cloudflare Pages is recommended over GitHub Pages because it applies
+`_headers` (HSTS, CSP, anti-framing) and `_redirects` (clean `/d/<slug>`
+links). GitHub Pages ignores both.
+
+1. `node scripts/build_public_directory.mjs` (from the repo root) → `build/public_site/`.
+2. Cloudflare dashboard → Workers & Pages → Create → Pages → upload
+   `build/public_site/` (or `npx wrangler pages deploy build/public_site --project-name nombara-site`).
+3. Pages project → Custom domains → add `nombara.naazglobalcorp.com`.
+   If naazglobalcorp.com's DNS is on Cloudflare this is automatic; otherwise
+   add a `CNAME nombara → <project>.pages.dev` record at your DNS provider.
+4. Cloudflare → SSL/TLS → "Always Use HTTPS" on, minimum TLS 1.2.
+5. Check: `curl -sI https://nombara.naazglobalcorp.com | grep -i strict-transport`
+   and https://securityheaders.com/?q=nombara.naazglobalcorp.com (expect A/A+).
+
+## Then point the apps at it
+
+- Build with `--dart-define=WEBSITE_URL=https://nombara.naazglobalcorp.com`
+  and `--dart-define=LEGAL_BASE_URL=https://nombara.naazglobalcorp.com`.
+- Android manifest `<data android:host>` and iOS Associated Domains
+  (`applinks:nombara.naazglobalcorp.com`) for the deep links.
+- App Store Connect / Play Console: Privacy Policy URL, Support URL, Marketing
+  URL, and Play's "Delete account URL" → the pages above.
+
+---
+
+## Deep-link plumbing (history)
 
 Static files that make the dispensary-shared booking links
 (`https://<host>/d/<slug>?doc=<doctorId>`) resolve — opening the installed

@@ -121,14 +121,11 @@
     box.appendChild(el('div', next ? 'when' : 'when when--none',
       next ? 'Next session: ' + next : 'No session scheduled yet — check the app for the latest times'));
 
-    var book = el('a', 'btn btn--green btn--block', 'Book a token here');
-    book.href = C.bookingUrl(CONFIG, {
-      dispensary_slug: loc.dispensary_slug,
-      doctor_id: profile.doctor_id,
-    });
-    book.style.marginTop = '.8rem';
+    /* Booking is app-only — send the visitor to the store for their phone. */
+    var book = el('a', 'btn btn--green btn--block btn--spaced', 'Download the Nombara app to book');
+    book.href = C.appDownloadUrl(CONFIG, navigator.userAgent);
     book.setAttribute('aria-label',
-      'Book a token with ' + (profile.doctor_name || 'this practitioner') +
+      'Download the Nombara app to book ' + (profile.doctor_name || 'this practitioner') +
       ' at ' + (loc.dispensary_name || 'this dispensary'));
     box.appendChild(book);
 
@@ -147,7 +144,7 @@
     var meta = document.querySelector('meta[name="description"]');
     if (meta) {
       meta.setAttribute('content',
-        descriptionParts.join(' · ') + ' — verified on Nombara. Book a numbered token and skip the waiting room.');
+        descriptionParts.join(' · ') + ' — verified on Nombara. Book a numbered token in the Nombara app.');
     }
 
     var head = el('div', 'profile__head');

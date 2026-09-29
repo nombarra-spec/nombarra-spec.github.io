@@ -3,93 +3,340 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nombara — book a doctor, skip the waiting room</title>
-<meta name="description" content="Nombara gives you a numbered token for a doctor at a local dispensary in Sri Lanka, then shows the live 'now serving' number so you arrive just before your turn.">
-<link rel="canonical" href="https://nombarra-spec.github.io/">
-<meta property="og:title" content="Nombara — book a doctor, skip the waiting room">
-<meta property="og:description" content="Verified doctors, dentists and Ayurveda practitioners at dispensaries across Sri Lanka.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://tmkeqkxumbktodcylzpe.supabase.co; connect-src 'self' https://tmkeqkxumbktodcylzpe.supabase.co; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Nombara — See your doctor without the wait</title>
+<meta name="description" content="Book verified doctors, dentists and Ayurveda practitioners at your local dispensary in Sri Lanka. Get a numbered token, watch the live queue, and arrive when it's your turn.">
+<meta name="theme-color" content="#0F3A2E">
+<link rel="canonical" href="https://nombara.naazglobalcorp.com/">
+<meta property="og:title" content="Nombara — See your doctor without the wait">
+<meta property="og:description" content="Verified doctors, dentists and Ayurveda practitioners at dispensaries across Sri Lanka. Live token queue, in Sinhala, Tamil and English.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://nombara.naazglobalcorp.com/">
 <link rel="icon" href="app/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Sora:wght@400;600;700&display=swap">
-<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/chrome.css">
+<link rel="stylesheet" href="assets/home.css">
 </head>
 <body>
+<a class="nb-skip" href="#main">Skip to content</a>
 
-<header class="site">
-  <div class="wrap">
-    <a class="brand" href="index.html"><span class="mark">+</span> Nombara</a>
-    <nav>
+<header class="nb-header">
+  <div class="nb-wrap nb-nav">
+    <a class="nb-brand" href="index.html"><span class="nb-mark" aria-hidden="true">N</span>Nombara</a>
+    <button class="nb-menu" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nb-links">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0F3A2E" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav class="nb-links" id="nb-links" aria-label="Main">
       <a href="doctors.html">Find a doctor</a>
-      <a href="https://nombarra-spec.github.io/nombara-site/support.html">Support</a>
-      <a href="https://nombarra-spec.github.io/nombara-site/privacy.html">Privacy</a>
+      <a href="index.html#how">How it works</a>
+      <a href="index.html#clinics">For clinics</a>
+      <a href="about.html">About us</a>
+      <a href="support.html">Support</a>
+      <a class="nb-btn nb-btn-primary" href="index.html#get-app">Get the app</a>
     </nav>
   </div>
 </header>
 
-<section class="hero">
-  <div class="wrap">
-    <h1>Book a doctor. Skip the waiting room.</h1>
-    <p>Get a numbered token for a doctor at a local dispensary from your phone,
-       then watch the live “now serving” number and arrive just before your turn.</p>
-    <p style="margin-top:1.2rem">
-      <a class="btn btn--green" href="doctors.html">Find a doctor near you</a>
-    </p>
-  </div>
-</section>
+<main id="main">
 
-<main class="wrap wrap--narrow">
-  <h2>How it works</h2>
-  <ol>
-    <li><strong>Find a practitioner.</strong> Browse verified doctors, dentists and
-        Ayurveda practitioners — sorted by how near they are to you.</li>
-    <li><strong>Take a token.</strong> Pick a session and get a numbered token,
-        from the app or from your browser.</li>
-    <li><strong>Arrive on time.</strong> The live “now serving” number and a
-        near-turn alert tell you when to leave.</li>
-  </ol>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="nb-wrap hero-grid">
+      <div>
+        <span class="badge">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+          Verified practitioners · Local dispensary channelling</span>
+        <h1>See your doctor without the wait.</h1>
+        <p class="sub">Find a doctor at your neighbourhood dispensary, book a numbered token in the Nombara app, and follow the live queue on your phone. Arrive when it's your turn — not two hours early.</p>
+        <div class="hero-cta">
+          <a class="nb-btn nb-btn-primary" href="doctors.html">Find a doctor →</a>
+          <a class="nb-btn nb-btn-ghost" href="#get-app">Download the app</a>
+        </div>
+        <div class="hero-metrics">
+          <div class="metric"><b>Verified</b><span>every practitioner</span></div>
+          <div class="metric"><b class="tnum" id="docCount">Live</b><span id="docCountLbl">token queue</span></div>
+          <div class="metric"><b>EN · සිං · த</b><span>in the app</span></div>
+        </div>
+      </div>
 
-  <div class="callout">
-    <p><strong>Nombara is a booking and queue service, not a medical provider.</strong>
-       It does not give medical advice, diagnoses, triage or prescription handling —
-       that stays entirely between you and the doctor.</p>
-  </div>
+      <div class="phone" role="img" aria-label="Illustration: the Nombara app showing the token now being served and your place in the queue">
+        <div class="phone-screen" aria-hidden="true">
+          <div class="ph-top"><span class="nb-mark">N</span>Nombara</div>
+          <div class="ph-body">
+            <div class="ph-serv-lbl">Now serving</div>
+            <div class="ph-serv tnum" id="serv">11</div>
+            <div class="ph-voice" id="vln">“Next token 11”</div>
+            <div class="ph-card">
+              <div><small>Your token</small><b class="tnum">14</b></div>
+              <div class="right"><small>Est. wait</small><b class="tnum" id="wt">~24m</b></div>
+            </div>
+            <div class="ph-ahead" id="ah">3 patients ahead of you</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <h2>No payments in the app</h2>
-  <p>Nombara never takes a card payment and has no in-app purchases. The booking
-     fee and the doctor’s fee are both paid in cash at the dispensary counter.</p>
+  <!-- CONCERN CHIPS -->
+  <section class="chips-band">
+    <div class="nb-wrap">
+      <div class="eyebrow">Find the right doctor</div>
+      <h2 class="h2">Browse doctors by field or by area.</h2>
+      <h3 class="chips-sub">By field</h3>
+      <nav class="chips" id="fieldChips" aria-label="Browse by field">
+        <a class="chip" href="doctors.html?specialty=General%20practitioner">General doctors</a>
+        <a class="chip" href="doctors.html?specialty=Paediatrician">Child health</a>
+        <a class="chip" href="doctors.html?specialty=Dermatologist">Skin</a>
+        <a class="chip" href="doctors.html?specialty=Gynaecologist">Women's health</a>
+        <a class="chip" href="doctors.html?specialty=Orthopaedic%20surgeon">Bones &amp; joints</a>
+        <a class="chip" href="doctors.html?category=dental">Dental</a>
+        <a class="chip" href="doctors.html?category=ayurveda">Ayurveda</a>
+      </nav>
+      <h3 class="chips-sub">By area</h3>
+      <nav class="chips" id="areaChips" aria-label="Browse by area">
+        <a class="chip" href="doctors.html">All areas</a>
+      </nav>
+      <p class="fine">Found your doctor? Booking is done in the Nombara app.</p>
+    </div>
+  </section>
 
-  <h2>Every practitioner is verified</h2>
-  <p>A practitioner appears on this site only after Nombara has checked their
-     registration against the right professional register — the Sri Lanka Medical
-     Council, its dental register, or the Ayurvedic Medical Council. Photos are
-     published only with the practitioner’s consent.</p>
+  <!-- WAYS TO BOOK -->
+  <section>
+    <div class="nb-wrap">
+      <div class="eyebrow">How to book</div>
+      <h2 class="h2">Find here. Book in the app.</h2>
+      <p class="lead">Find your doctor here, then book in the Nombara app — or at the dispensary counter. Same doctors, same live queue.</p>
+      <div class="ways">
+        <div class="way">
+          <div class="wtop"><span class="wico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F3A2E" stroke-width="2" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg></span><h3>Book in the app</h3></div>
+          <div class="whn">Open 24/7 · takes under a minute</div>
+          <ul>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1F8F5F" stroke-width="2.5" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>See real-time availability</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1F8F5F" stroke-width="2.5" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>Get a token &amp; watch the live queue</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1F8F5F" stroke-width="2.5" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>Book for your whole family</li>
+          </ul>
+          <a class="nb-btn nb-btn-primary" href="#get-app">Get the app</a>
+        </div>
+        <div class="way">
+          <div class="wtop"><span class="wico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F3A2E" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></span><h3>Find them on this website</h3></div>
+          <div class="whn">Browse before you download</div>
+          <ul>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1F8F5F" stroke-width="2.5" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>Every verified practitioner</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1F8F5F" stroke-width="2.5" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>Filter by field and by area</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1F8F5F" stroke-width="2.5" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>See where and when they sit</li>
+          </ul>
+          <a class="nb-btn nb-btn-ghost" href="doctors.html">Find a doctor</a>
+        </div>
+        <div class="way">
+          <div class="wtop"><span class="wico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F3A2E" stroke-width="2" aria-hidden="true"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M10 21v-5h4v5M12 9v4M10 11h4"/></svg></span><h3>At the dispensary</h3></div>
+          <div class="whn">During dispensary hours</div>
+          <ul>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1F8F5F" stroke-width="2.5" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>Reception books you in the same queue</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1F8F5F" stroke-width="2.5" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>Book today or a future session</li>
+            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1F8F5F" stroke-width="2.5" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg>No smartphone needed</li>
+          </ul>
+        </div>
+        <div class="way" id="hotlineCard" hidden>
+          <div class="wtop"><span class="wico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0F3A2E" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.4-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span><h3>Call or WhatsApp</h3></div>
+          <div class="whn">Sinhala, Tamil &amp; English · pick your area</div>
+          <ul class="lines" id="hotlineList"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <h2>Links</h2>
-  <ul>
-    <li><a href="doctors.html">Find a doctor</a></li>
-    <li><a href="https://nombarra-spec.github.io/nombara-site/privacy.html">Privacy policy</a></li>
-    <li><a href="https://nombarra-spec.github.io/nombara-site/terms.html">Terms of use</a></li>
-    <li><a href="https://nombarra-spec.github.io/nombara-site/support.html">Support &amp; contact</a></li>
-    <li><a href="https://nombarra-spec.github.io/nombara-site/delete-account.html">Delete your account and data</a></li>
-  </ul>
+  <!-- HOW -->
+  <section id="how" class="flush-top">
+    <div class="nb-wrap">
+      <div class="eyebrow">How it works</div>
+      <h2 class="h2">Three steps. That's it.</h2>
+      <div class="steps">
+        <div class="stp"><div class="num" aria-hidden="true"></div><h3>Find your doctor</h3><p>Search by doctor, dispensary or town — for yourself or a family member. You get a numbered token instantly, confirmed by SMS.</p></div>
+        <div class="stp"><div class="num" aria-hidden="true"></div><h3>Watch the live queue</h3><p>See who's being seen now and how many are ahead. Nombara tells you when it's nearly your turn, so you leave home at the right time.</p></div>
+        <div class="stp"><div class="num" aria-hidden="true"></div><h3>Walk in on time</h3><p>Arrive when your number is close instead of waiting for hours. Your token is called on screen and by voice, in your language.</p></div>
+      </div>
+    </div>
+  </section>
 
-  <h2>Contact</h2>
-  <p>Email <a href="mailto:nombarra@gmail.com">nombarra@gmail.com</a>.</p>
+  <!-- WHO YOU CAN SEE -->
+  <section class="flush-top">
+    <div class="nb-wrap">
+      <div class="eyebrow">Who you can see</div>
+      <h2 class="h2">Doctors, dentists and Ayurveda — all in one place.</h2>
+      <p class="lead">From a common fever to a dental check-up to traditional care, book verified practitioners at dispensaries near you.</p>
+      <div class="care">
+        <a class="carecard" href="doctors.html?specialty=General%20practitioner"><h3>General doctors</h3><p>Fever, infections, everyday illness and long-term conditions.</p></a>
+        <a class="carecard" href="doctors.html?specialty=Paediatrician"><h3>Child health</h3><p>Vaccinations, growth, fever and common childhood infections.</p></a>
+        <a class="carecard" href="doctors.html?specialty=Gynaecologist"><h3>Women's health</h3><p>Wellness, menstrual concerns and pregnancy questions.</p></a>
+        <a class="carecard" href="doctors.html?category=dental"><h3>Dental</h3><p>Registered dentists — book and track your turn like any doctor.</p></a>
+        <a class="carecard" href="doctors.html?category=ayurveda"><h3>Ayurveda</h3><p>Council-registered Ayurvedic and indigenous practitioners.</p></a>
+        <a class="carecard" href="doctors.html?specialty=Physician"><h3>Diabetes &amp; pressure</h3><p>Reviews, medication checks and routine monitoring.</p></a>
+        <a class="carecard" href="doctors.html?specialty=Dermatologist"><h3>Skin</h3><p>Rashes, allergies and skin conditions.</p></a>
+        <a class="carecard" href="doctors.html"><h3>Everyone near you</h3><p>The full list of verified practitioners, nearest first.</p></a>
+      </div>
+      <p class="note-line">Every practitioner on Nombara is checked against the right professional register — the Sri Lanka Medical Council, its dental register, or the Ayurvedic Medical Council — before a single patient can book them.</p>
+    </div>
+  </section>
+
+  <!-- FEATURES DARK -->
+  <section class="dark">
+    <div class="nb-wrap">
+      <div class="eyebrow">Built for how Sri Lanka visits the doctor</div>
+      <h2 class="h2">Small touches that change the whole visit.</h2>
+      <div class="grid4">
+        <div class="fx"><span class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8A13A" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><h3>Live token queue</h3><p>The real number being served and your place in line, in real time.</p></div>
+        <div class="fx"><span class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8A13A" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/></svg></span><h3>Book for family</h3><p>One account, many profiles — your parents and children together.</p></div>
+        <div class="fx"><span class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8A13A" stroke-width="2" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/></svg></span><h3>Voice call-outs</h3><p>Your turn announced by voice in Sinhala, Tamil or English.</p></div>
+        <div class="fx"><span class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8A13A" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg></span><h3>Follow-up reminders</h3><p>When your doctor asks you back, the app keeps the follow-up date for you.</p></div>
+        <div class="fx"><span class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8A13A" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span><h3>Verified only</h3><p>Only registered, verified practitioners appear on Nombara.</p></div>
+        <div class="fx"><span class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8A13A" stroke-width="2" aria-hidden="true"><path d="M3 21h18M5 21V8l7-5 7 5v13"/></svg></span><h3>No smartphone? No problem</h3><p>Reception can book your token at the counter — you still get an SMS.</p></div>
+        <div class="fx"><span class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8A13A" stroke-width="2" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span><h3>Your data, protected</h3><p>Sent over encrypted connections, kept to the minimum, and never sold.</p></div>
+        <div class="fx"><span class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8A13A" stroke-width="2" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="2.5"/></svg></span><h3>Near you first</h3><p>See dispensaries closest to you, sorted by distance.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE DOCTORS -->
+  <section id="doctors">
+    <div class="nb-wrap">
+      <div class="docs-head">
+        <div>
+          <div class="eyebrow">Verified practitioners</div>
+          <h2 class="h2">Meet the doctors on Nombara.</h2>
+        </div>
+        <div class="arrows" id="railArrows">
+          <button class="arrow" type="button" aria-label="Previous practitioners" data-dir="-1"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F3A2E" stroke-width="2" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+          <button class="arrow" type="button" aria-label="Next practitioners" data-dir="1"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F3A2E" stroke-width="2" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+        </div>
+      </div>
+      <ul class="rail" id="rail" aria-live="polite" aria-busy="true">
+        <li class="doc skel" aria-hidden="true"></li>
+        <li class="doc skel" aria-hidden="true"></li>
+        <li class="doc skel" aria-hidden="true"></li>
+        <li class="doc skel" aria-hidden="true"></li>
+      </ul>
+      <div id="railMsg"></div>
+      <div class="docs-foot">
+        <p class="fine">Live from the Nombara register. A practitioner appears here as soon as they are verified.</p>
+        <a class="nb-btn nb-btn-ghost" href="doctors.html">See all practitioners →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST -->
+  <section class="flush-top">
+    <div class="nb-wrap trust-grid">
+      <div>
+        <div class="eyebrow">Why patients trust us</div>
+        <h2 class="h2">Your health, in careful hands.</h2>
+        <p class="lead">Handing your family's care to an app takes trust. Here's who we are and how we protect you.</p>
+        <div class="stats">
+          <div class="stat"><b>SLMC · AMC</b><span>Registration checked for every practitioner</span></div>
+          <div class="stat"><b>3</b><span>Languages in the app</span></div>
+          <div class="stat"><b>Kandy</b><span>Where we started</span></div>
+          <div class="stat"><b>Pvt Ltd</b><span>Registered Sri Lankan company</span></div>
+        </div>
+      </div>
+      <div class="qa">
+        <div><h3>Are these real, qualified doctors?</h3><p>Every practitioner is registered with the relevant authority — the Sri Lanka Medical Council for doctors and dentists, the Ayurvedic Medical Council for Ayurveda — and verified by our team before a patient can book them.</p></div>
+        <div><h3>Who runs Nombara?</h3><p>Nombara is built and operated by Naaz Global Corporation (Pvt) Ltd, a registered Sri Lankan company based in Akurana, Kandy — built for local clinics, doctor by doctor.</p></div>
+        <div><h3>What happens to my details?</h3><p>Your information travels over encrypted connections, is kept to the minimum we need, and is never sold. Read our <a href="privacy.html">privacy policy</a>.</p></div>
+        <div><h3>Do I need a smartphone?</h3><p>No. The dispensary reception can book your token for you, and you'll get the details by SMS.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR CLINICS / JOIN -->
+  <section id="clinics">
+    <div class="nb-wrap join-grid">
+      <div>
+        <div class="eyebrow">For doctors &amp; dispensaries</div>
+        <h2 class="h2">A calmer clinic, and patients who arrive on time.</h2>
+        <p class="lead">List your practice on Nombara and let patients book and track their own turn. Your front desk stays calm, your queue stays in order, and you only handle the patients you actually see.</p>
+        <ul class="benefits">
+          <li><span class="bcheck"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1F8F5F" stroke-width="3" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg></span>A calmer waiting room — patients come when it's nearly their turn.</li>
+          <li><span class="bcheck"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1F8F5F" stroke-width="3" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg></span>One simple screen to call the next patient — walk-ins and online together.</li>
+          <li><span class="bcheck"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1F8F5F" stroke-width="3" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg></span>See exactly how many patients you channelled, every session.</li>
+          <li><span class="bcheck"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1F8F5F" stroke-width="3" aria-hidden="true"><path d="m5 13 4 4L19 7"/></svg></span>Visit several clinics? One profile, all your sessions in one place.</li>
+        </ul>
+      </div>
+      <form class="form" id="join" novalidate>
+        <h3>List your practice</h3>
+        <p class="fp">Tell us who you are — our team will visit and set you up on Nombara. This opens your email app with the details filled in; nothing is stored on this website.</p>
+        <p class="err" id="joinErr" role="alert" hidden></p>
+        <div class="field"><label for="jName">Your name</label><input id="jName" type="text" autocomplete="name" maxlength="80" placeholder="e.g. Dr. Ahamed" required></div>
+        <div class="field"><label for="jPhone">Phone number</label><input id="jPhone" type="tel" autocomplete="tel" maxlength="20" placeholder="07X XXX XXXX" required></div>
+        <div class="field"><label for="jRole">I am a…</label><select id="jRole"><option>Doctor</option><option>Dentist</option><option>Ayurveda practitioner</option><option>Dispensary / clinic owner</option></select></div>
+        <div class="field"><label for="jPlace">Town / dispensary</label><input id="jPlace" type="text" maxlength="100" placeholder="e.g. Akurana, Kandy"></div>
+        <button class="nb-btn nb-btn-primary" type="submit">Send to the Nombara team</button>
+        <div class="orline">or reach us directly</div>
+        <div class="contacts" id="joinContacts">
+          <a href="mailto:nombara@naazglobalcorp.com">Email</a>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="flush-top">
+    <div class="nb-wrap faq">
+      <div class="eyebrow">Frequently asked</div>
+      <h2 class="h2">Common questions.</h2>
+      <div class="faq-list">
+        <details open><summary>How does the live token work?<span class="pm" aria-hidden="true">+</span></summary><p>When you book, you get a token number. The app shows which number the doctor is serving right now and how many people are ahead of you, updating live — so you know exactly when to leave home.</p></details>
+        <details><summary>Do I have to pay through the app?<span class="pm" aria-hidden="true">+</span></summary><p>No. Nombara never takes a card payment and has no in-app purchases. The booking fee and the doctor's fee are paid in cash at the dispensary counter.</p></details>
+        <details><summary>Can I book for my family?<span class="pm" aria-hidden="true">+</span></summary><p>Yes. One account can hold profiles for your parents, children and yourself.</p></details>
+        <details><summary>Can I cancel a booking?<span class="pm" aria-hidden="true">+</span></summary><p>Yes — open <em>My queues</em> in the app, tap the token and cancel. Please cancel if you can't come, so the slot goes to someone else.</p></details>
+        <details><summary>What if I don't have a smartphone?<span class="pm" aria-hidden="true">+</span></summary><p>The dispensary reception can book your token for you. You'll receive the doctor, token number and time by SMS.</p></details>
+        <details><summary>Are the doctors verified?<span class="pm" aria-hidden="true">+</span></summary><p>Yes. Every doctor, dentist and Ayurveda practitioner is registered with the relevant authority and verified by our team before they appear on Nombara.</p></details>
+        <details><summary>How do I delete my account?<span class="pm" aria-hidden="true">+</span></summary><p>In the app: menu → <em>Delete my account</em>. Or see the <a href="delete-account.html">account deletion page</a> to ask us by email.</p></details>
+        <details><summary>Is Nombara a medical service?<span class="pm" aria-hidden="true">+</span></summary><p>No. Nombara is a booking and queue service only. It does not give medical advice, diagnoses or triage. In an emergency, call 1990 (Suwa Seriya) or go to the nearest hospital.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="get-app">
+    <div class="ctaband">
+      <h2>Your number is waiting. Your time doesn't have to be.</h2>
+      <p>Download Nombara to book your token and follow the live queue.</p>
+      <div class="row">
+        <a class="nb-btn nb-btn-light" id="playBtn" href="#" hidden>Get it on Google Play</a>
+        <a class="nb-btn nb-btn-onDark" id="iosBtn" href="#" hidden>Download on the App Store</a>
+        <a class="nb-btn nb-btn-light" id="webBtn" href="doctors.html">Browse doctors</a>
+      </div>
+      <p class="soon" id="storeSoon">The Android and iPhone apps are coming soon to Google Play and the App Store.</p>
+    </div>
+  </section>
+
 </main>
 
-<footer class="site">
-  <div class="wrap">
-    <nav>
-      <a href="doctors.html">Find a doctor</a>
-      <a href="https://nombarra-spec.github.io/nombara-site/privacy.html">Privacy</a>
-      <a href="https://nombarra-spec.github.io/nombara-site/terms.html">Terms</a>
-      <a href="https://nombarra-spec.github.io/nombara-site/support.html">Support</a>
-      <a href="https://nombarra-spec.github.io/nombara-site/delete-account.html">Delete account</a>
-    </nav>
-    Nombara is operated by Mohammed Mahsoom Mohammed Naazik, Sri Lanka. &copy; 2026.
+<footer class="nb-footer">
+  <div class="nb-wrap">
+    <div class="nb-foot">
+      <div>
+        <a class="nb-brand" href="index.html"><span class="nb-mark" aria-hidden="true">N</span>Nombara</a>
+        <p>See your doctor without the wait. Book verified doctors, dentists and Ayurveda practitioners at your local dispensary.</p>
+        <address class="nb-addr">Naaz Global Corporation (Pvt) Ltd<br>Akurana, Kandy, Sri Lanka<br><a href="mailto:nombara@naazglobalcorp.com">nombara@naazglobalcorp.com</a></address>
+      </div>
+      <nav aria-label="For patients"><h2>For patients</h2><a href="doctors.html">Find a doctor</a><a href="index.html#how">How it works</a><a href="index.html#faq">FAQ</a><a href="support.html">Support</a></nav>
+      <nav aria-label="Company"><h2>Company</h2><a href="about.html">About us</a><a href="index.html#clinics">List your practice</a><a href="support.html">Contact</a><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms of use</a></nav>
+      <nav aria-label="Your data"><h2>Your data</h2><a href="delete-account.html">Delete your account</a><a href="privacy.html">How we use your data</a></nav>
+    </div>
+    <div class="nb-copy">
+      <span>© <span id="nb-year">2026</span> Naaz Global Corporation (Pvt) Ltd. All rights reserved.</span>
+      <span>Nombara is a booking &amp; queue service, not a medical provider.</span>
+    </div>
   </div>
 </footer>
 
+<script src="assets/config.js"></script>
+<script src="assets/directory-core.js"></script>
+<script src="assets/nombara-api.js"></script>
+<script src="assets/chrome.js"></script>
+<script src="assets/home.js"></script>
 </body>
 </html>

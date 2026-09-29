@@ -1,0 +1,30 @@
+# HTTP security headers — read by Cloudflare Pages (and Netlify), the
+# recommended host for nombara.naazglobalcorp.com. GitHub Pages ignores this
+# file; there the per-page <meta> CSP is the only policy that applies.
+#
+# The strict CSP below matches the <meta http-equiv="Content-Security-Policy">
+# in every page (test/web/site_security_test.cjs keeps them in step). It
+# forbids inline scripts, inline event handlers, framing, plugins and any
+# network destination other than this site and the Supabase project.
+
+/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(self), camera=(), microphone=(), payment=(), usb=(), browsing-topics=()
+  Cross-Origin-Opener-Policy: same-origin
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://tmkeqkxumbktodcylzpe.supabase.co; connect-src 'self' https://tmkeqkxumbktodcylzpe.supabase.co; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; upgrade-insecure-requests
+
+# The Flutter web booking app loads CanvasKit from gstatic, compiles WASM and
+# injects inline styles, so it can't run under the strict policy. It keeps
+# every other header, plus a CSP that still blocks framing and plugins.
+/app/*
+  ! Content-Security-Policy
+  Content-Security-Policy: object-src 'none'; base-uri 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+
+/.well-known/apple-app-site-association
+  Content-Type: application/json
+
+/d/*
+  X-Robots-Tag: noindex

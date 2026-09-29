@@ -3,23 +3,33 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://tmkeqkxumbktodcylzpe.supabase.co; connect-src 'self' https://tmkeqkxumbktodcylzpe.supabase.co; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Practitioner — Nombara</title>
 <meta name="description" content="A verified practitioner on Nombara: where they sit, when they next sit, and how to book a numbered token.">
 <meta name="robots" content="index, follow">
 <link rel="icon" href="app/favicon.png">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Sora:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap">
 <link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/chrome.css">
 </head>
 <body>
+<a class="nb-skip" href="#profile">Skip to content</a>
 
-<header class="site">
-  <div class="wrap">
-    <a class="brand" href="index.html"><span class="mark">+</span> Nombara</a>
-    <nav>
-      <a href="doctors.html">Find a doctor</a>
-      <a href="https://nombarra-spec.github.io/nombara-site/support.html">Support</a>
-      <a href="https://nombarra-spec.github.io/nombara-site/privacy.html">Privacy</a>
+<header class="nb-header">
+  <div class="nb-wrap nb-nav">
+    <a class="nb-brand" href="index.html"><span class="nb-mark" aria-hidden="true">N</span>Nombara</a>
+    <button class="nb-menu" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nb-links">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0F3A2E" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav class="nb-links" id="nb-links" aria-label="Main">
+      <a href="doctors.html" aria-current="page">Find a doctor</a>
+      <a href="index.html#how">How it works</a>
+      <a href="index.html#clinics">For clinics</a>
+      <a href="about.html">About us</a>
+      <a href="support.html">Support</a>
+      <a class="nb-btn nb-btn-primary" href="index.html#get-app">Get the app</a>
     </nav>
   </div>
 </header>
@@ -29,21 +39,27 @@
   <div id="slot"></div>
 </main>
 
-<footer class="site">
-  <div class="wrap">
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="doctors.html">Find a doctor</a>
-      <a href="https://nombarra-spec.github.io/nombara-site/privacy.html">Privacy</a>
-      <a href="https://nombarra-spec.github.io/nombara-site/terms.html">Terms</a>
-      <a href="https://nombarra-spec.github.io/nombara-site/support.html">Support</a>
-    </nav>
-    Nombara is a booking and queue service, not a medical provider. It does not
-    give medical advice, diagnoses or triage.
+<footer class="nb-footer">
+  <div class="nb-wrap">
+    <div class="nb-foot">
+      <div>
+        <a class="nb-brand" href="index.html"><span class="nb-mark" aria-hidden="true">N</span>Nombara</a>
+        <p>See your doctor without the wait. Book verified doctors, dentists and Ayurveda practitioners at your local dispensary.</p>
+        <address class="nb-addr">Naaz Global Corporation (Pvt) Ltd<br>Akurana, Kandy, Sri Lanka<br><a href="mailto:nombara@naazglobalcorp.com">nombara@naazglobalcorp.com</a></address>
+      </div>
+      <nav aria-label="For patients"><h2>For patients</h2><a href="doctors.html">Find a doctor</a><a href="index.html#how">How it works</a><a href="index.html#faq">FAQ</a><a href="support.html">Support</a></nav>
+      <nav aria-label="Company"><h2>Company</h2><a href="about.html">About us</a><a href="index.html#clinics">List your practice</a><a href="support.html">Contact</a><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms of use</a></nav>
+      <nav aria-label="Your data"><h2>Your data</h2><a href="delete-account.html">Delete your account</a><a href="privacy.html">How we use your data</a></nav>
+    </div>
+    <div class="nb-copy">
+      <span>© <span id="nb-year">2026</span> Naaz Global Corporation (Pvt) Ltd. All rights reserved.</span>
+      <span>Nombara is a booking &amp; queue service, not a medical provider.</span>
+    </div>
   </div>
 </footer>
 
 <script src="assets/config.js"></script>
+<script src="assets/chrome.js"></script>
 <script src="assets/directory-core.js"></script>
 <script src="assets/nombara-api.js"></script>
 <script src="assets/doctor.js"></script>

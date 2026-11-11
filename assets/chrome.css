@@ -50,7 +50,7 @@ body { background: var(--nb-paper); }
 .nb-header { position: sticky; top: 0; z-index: 60; background: rgba(251, 252, 251, .92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--nb-line); font-family: var(--nb-body); }
 .nb-nav { display: flex; align-items: center; gap: 20px; height: 70px; position: relative; }
 .nb-brand { display: flex; align-items: center; gap: 10px; font-family: var(--nb-display); font-weight: 800; font-size: 21px; color: var(--nb-pine); text-decoration: none; }
-.nb-mark { width: 34px; height: 34px; border-radius: 10px; background: var(--nb-pine); color: #fff; display: grid; place-items: center; font-weight: 800; font-size: 16px; }
+.nb-mark { width: 34px; height: 34px; flex: 0 0 auto; border-radius: 28%; background: url(nombara-icon.svg) center / contain no-repeat; font-size: 0; color: transparent; overflow: hidden; }
 .nb-links { display: flex; align-items: center; gap: 26px; margin-left: auto; }
 .nb-links a:not(.nb-btn) { font-weight: 600; font-size: 15px; color: var(--nb-ink); text-decoration: none; }
 .nb-links a:not(.nb-btn):hover,

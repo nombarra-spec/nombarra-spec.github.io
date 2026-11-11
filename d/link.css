@@ -6,9 +6,9 @@
          display: flex; align-items: center; justify-content: center; padding: 24px; }
   .card { background: #fff; border: 1px solid var(--line); border-radius: 18px;
           max-width: 380px; width: 100%; padding: 28px 24px; text-align: center; }
-  .mark { width: 34px; height: 34px; border-radius: 9px; background: var(--green);
-          display: inline-flex; align-items: center; justify-content: center;
-          color: #fff; font-size: 20px; font-weight: 700; margin-bottom: 14px; }
+  .mark { width: 40px; height: 40px; border-radius: 28%; margin-bottom: 14px;
+          background: url(../assets/nombara-icon.svg) center / contain no-repeat;
+          display: inline-block; font-size: 0; color: transparent; overflow: hidden; }
   h1 { font-size: 19px; margin-bottom: 6px; }
   p  { font-size: 13px; color: var(--muted); margin-bottom: 20px; line-height: 1.5; }
   a.btn { display: block; text-decoration: none; font-size: 14px; font-weight: 700;

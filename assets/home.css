@@ -38,7 +38,7 @@ main section.flush-top { padding-top: 0; }
 .phone { width: 290px; max-width: 100%; margin: 0 auto; background: #0B2C22; border-radius: 34px; padding: 10px; box-shadow: 0 40px 70px -34px rgba(15, 58, 46, .6); }
 .phone-screen { background: var(--pine); border-radius: 26px; overflow: hidden; }
 .ph-top { padding: 14px 16px; display: flex; align-items: center; gap: 8px; color: #fff; font-family: var(--display); font-weight: 700; font-size: 14px; }
-.ph-top .nb-mark { width: 24px; height: 24px; font-size: 12px; border-radius: 7px; background: var(--green); }
+.ph-top .nb-mark { width: 24px; height: 24px; background-image: url(nombara-icon-small.svg); }
 .ph-body { background: #0B2C22; padding: 22px 18px 24px; }
 .ph-serv-lbl { color: #9DC7B4; font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; text-align: center; }
 .ph-serv { font-family: var(--display); font-weight: 800; font-size: 82px; color: #fff; text-align: center; line-height: 1; }

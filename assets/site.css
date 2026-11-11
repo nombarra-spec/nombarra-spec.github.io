@@ -84,15 +84,12 @@ header.site .wrap {
 .brand .mark {
   width: 28px;
   height: 28px;
-  border-radius: 8px;
-  background: var(--green);
-  color: #fff;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 1;
+  border-radius: 28%;
+  background: url(nombara-icon-small.svg) center / contain no-repeat;
+  display: inline-block;
+  font-size: 0;
+  color: transparent;
+  overflow: hidden;
 }
 
 header.site nav {

@@ -1,5 +1,2 @@
 User-agent: *
-Allow: /
-Disallow: /app/
-Disallow: /d/
-Sitemap: https://nombara.naazglobalcorp.com/sitemap.xml
+Disallow: /
